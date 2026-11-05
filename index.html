@@ -134,9 +134,30 @@ list.innerHTML=filtered.map(song=>`
 </div>`).join('');
 }
 
-document.getElementById('artistForm').addEventListener('submit',function(e){
+document.getElementById('artistForm').addEventListener('submit', async function(e){
 e.preventDefault();
-alert('Thank you! The submission form is ready for backend connection. Your details have not been sent or saved yet.');
+
+const fields = this.querySelectorAll('input, select, textarea');
+
+const submission = {
+  artist: fields[0].value.trim(),
+  artist_email: fields[1].value.trim(),
+  title: fields[2].value.trim(),
+  genre: fields[3].value,
+  audio_url: fields[4].value.trim(),
+  description: fields[5].value.trim(),
+  approval_status: 'pending'
+};
+
+const { error } = await supabase.from('songs').insert([submission]);
+
+if (error) {
+  alert('Submission failed: ' + error.message);
+  return;
+}
+
+this.reset();
+alert('Your music has been submitted successfully and is awaiting approval!');
 });
 
 renderSongs();
