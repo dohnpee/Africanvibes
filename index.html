@@ -1,176 +1,285 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AfricanVibes - African Music</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#0b1512;color:white;font-family:Arial,sans-serif}
-header{padding:20px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #304037}
-.logo{font-size:25px;font-weight:bold;color:#e9bd58}
-nav a{color:white;text-decoration:none;margin-left:15px}
-.hero{text-align:center;padding:65px 6%;background:linear-gradient(135deg,#173b29,#09110e)}
-.hero h1{font-size:45px}
-.hero span{color:#e9bd58}
-.hero p{color:#c5d0c8;line-height:1.7}
-.btn{background:#e9bd58;color:#111;padding:13px 22px;border-radius:7px;text-decoration:none;display:inline-block;font-weight:bold}
-section{padding:40px 7%}
-h2{color:#e9bd58}
-.search{width:100%;padding:16px;border-radius:8px;border:1px solid #405247;background:#17251d;color:white;font-size:16px;margin:15px 0}
-.categories{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
-.categories button{background:#20352a;color:white;border:1px solid #405247;padding:11px 17px;border-radius:20px;cursor:pointer}
-.categories button.active{background:#e9bd58;color:#111}
-.music-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
-.song{background:#17251d;padding:18px;border-radius:12px;border:1px solid #304037}
-.cover{height:135px;background:#263c30;border-radius:8px;display:grid;place-items:center;font-size:40px}
-.song h3{margin-bottom:5px}
-.song p{color:#aab8af;font-size:14px}
-.song a{color:#e9bd58}
-.empty{padding:30px;text-align:center;border:1px dashed #405247;border-radius:10px;color:#b9c5bd;grid-column:1/-1}
-form{background:#17251d;padding:22px;border-radius:12px}
-input,select,textarea{width:100%;padding:13px;margin:9px 0;background:#0b1512;border:1px solid #405247;border-radius:7px;color:white}
-form button{background:#e9bd58;border:0;padding:14px 20px;border-radius:7px;font-weight:bold;cursor:pointer}
-.note{color:#aab8af;font-size:13px;line-height:1.6}
-footer{text-align:center;padding:30px;color:#aab8af;border-top:1px solid #304037}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #0b1512;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #304037;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #e9bd58;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.hero {
+  text-align: center;
+  padding: 65px 6%;
+  background: linear-gradient(135deg,#173b29,#09110e);
+}
+
+.hero h1 { font-size: 40px; }
+.hero span { color: #e9bd58; }
+.hero p { color: #c5d0c8; line-height: 1.7; }
+
+.btn {
+  background: #e9bd58;
+  color: #111;
+  padding: 13px 22px;
+  border-radius: 7px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
+
+section { padding: 40px 7%; }
+h2 { color: #e9bd58; }
+
+.search, input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  margin: 9px 0;
+  background: #0b1512;
+  border: 1px solid #405247;
+  border-radius: 7px;
+  color: white;
+}
+
+.search { font-size: 16px; }
+
+.categories {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+.categories button {
+  background: #20352a;
+  color: white;
+  border: 1px solid #405247;
+  padding: 11px 17px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.categories button.active {
+  background: #e9bd58;
+  color: #111;
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+  gap: 16px;
+}
+
+.empty {
+  padding: 30px;
+  text-align: center;
+  border: 1px dashed #405247;
+  border-radius: 10px;
+  color: #b9c5bd;
+  grid-column: 1/-1;
+}
+
+form {
+  background: #17251d;
+  padding: 22px;
+  border-radius: 12px;
+}
+
+form button {
+  background: #e9bd58;
+  border: 0;
+  padding: 14px 20px;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.note {
+  color: #aab8af;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #aab8af;
+  border-top: 1px solid #304037;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo">AfricanVibes</div>
-<nav>
-<a href="#music">Music</a>
-<a href="#artists">Artists</a>
-</nav>
+  <div class="logo">AfricanVibes</div>
+  <nav>
+    <a href="#music">Music</a>
+    <a href="#artists">Artists</a>
+  </nav>
 </header>
 
 <div class="hero">
-<h1>Discover <span>African</span> Music</h1>
-<p>Your home for Nigerian, African and international sounds.</p>
-<a class="btn" href="#music">Explore Music</a>
+  <h1>Discover <span>African</span> Music</h1>
+  <p>Your home for Nigerian, African and international sounds.</p>
+  <a class="btn" href="#music">Explore Music</a>
 </div>
 
 <section id="music">
-<h2>Discover Music 🎵</h2>
-<p>Search for your favourite songs and artists.</p>
+  <h2>Discover Music 🎵</h2>
+  <p>Search for your favourite songs and artists.</p>
 
-<input class="search" id="search" placeholder="Search songs or artists..." oninput="renderSongs()">
+  <input class="search" id="search"
+    placeholder="Search songs or artists...">
 
-<div class="categories">
-<button class="active" onclick="setCategory('All',this)">All Music</button>
-<button onclick="setCategory('Afrobeats',this)">Afrobeats</button>
-<button onclick="setCategory('Amapiano',this)">Amapiano</button>
-<button onclick="setCategory('Gospel',this)">Gospel</button>
-<button onclick="setCategory('Hip-Hop',this)">Hip-Hop</button>
-<button onclick="setCategory('International',this)">International</button>
-</div>
+  <div class="categories">
+    <button class="active" onclick="setCategory('All',this)">All Music</button>
+    <button onclick="setCategory('Afrobeats',this)">Afrobeats</button>
+    <button onclick="setCategory('Amapiano',this)">Amapiano</button>
+    <button onclick="setCategory('Gospel',this)">Gospel</button>
+    <button onclick="setCategory('Hip-Hop',this)">Hip-Hop</button>
+    <button onclick="setCategory('International',this)">International</button>
+  </div>
 
-<div class="music-grid" id="songList"></div>
+  <div class="music-grid" id="songList">
+    <div class="empty">🎵 New music is coming soon!</div>
+  </div>
 </section>
 
 <section id="artists">
-<h2>Are You an Artist? 🎤</h2>
-<p>Submit your music for consideration on AfricanVibes.</p>
+  <h2>Are You an Artist? 🎤</h2>
+  <p>Submit your music for consideration on AfricanVibes.</p>
 
-<form id="artistForm">
-<input required placeholder="Artist name">
-<input required type="email" placeholder="Your email address">
-<input required placeholder="Song title">
-<select required>
-<option value="">Select music genre</option>
-<option>Afrobeats</option>
-<option>Amapiano</option>
-<option>Gospel</option>
-<option>Hip-Hop</option>
-<option>International</option>
-</select>
-<input required type="url" placeholder="Link to your music">
-<textarea required placeholder="Tell us about your song"></textarea>
-<button type="submit">Submit Music</button>
-<p class="note">Submission form demonstration. Online submission storage and file uploads will be connected in the next development stage.</p>
-</form>
+  <form id="artistForm">
+    <input required placeholder="Artist name">
+
+    <input required type="email"
+      placeholder="Your email address">
+
+    <input required placeholder="Song title">
+
+    <select required>
+      <option value="">Select music genre</option>
+      <option>Afrobeats</option>
+      <option>Amapiano</option>
+      <option>Gospel</option>
+      <option>Hip-Hop</option>
+      <option>International</option>
+    </select>
+
+    <input required type="url"
+      placeholder="Link to your music">
+
+    <textarea required
+      placeholder="Tell us about your song"></textarea>
+
+    <button type="submit">Submit Music</button>
+
+    <p class="note">
+      Submit your music to AfricanVibes.
+      All submissions are reviewed before publishing.
+    </p>
+  </form>
 </section>
 
 <footer>
-<p>© 2026 AfricanVibes</p>
-<p>Celebrating music and talent worldwide.</p>
+  <p>© 2026 AfricanVibes</p>
+  <p>Celebrating music and talent worldwide.</p>
 </footer>
 
-<script>
-src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>  
-const SUPABASE_URL = "https://ocqnqntoswppwshwaipu.supabase.co
-const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
+<script>
+const SUPABASE_URL =
+  "https://ocqnqntoswppwshwaipu.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_XW2ym0J08mIY2QYDvlMlbg_tgInmCaI";
 
 const supabase = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
 
-const songs = [];
 let category = 'All';
 
-function setCategory(value,button){
-category=value;
-document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
-button.classList.add('active');
-renderSongs();
+function setCategory(value, button) {
+  category = value;
+
+  document.querySelectorAll('.categories button')
+    .forEach(b => b.classList.remove('active'));
+
+  button.classList.add('active');
 }
 
-function renderSongs(){
-const search=document.getElementById('search').value.toLowerCase();
-const filtered=songs.filter(song=>
-(category==='All'||song.genre===category)&&
-(song.title.toLowerCase().includes(search)||
-song.artist.toLowerCase().includes(search))
-);
+document.getElementById('artistForm')
+.addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-const list=document.getElementById('songList');
+  const fields = this.querySelectorAll(
+    'input, select, textarea'
+  );
 
-if(filtered.length===0){
-list.innerHTML='<div class="empty">🎵 No songs available yet. New music is coming soon!</div>';
-return;
-}
+  const submission = {
+    artist: fields[0].value.trim(),
+    artist_email: fields[1].value.trim(),
+    Title: fields[2].value.trim(),
+    genre: fields[3].value,
+    audio_url: fields[4].value.trim(),
+    description: fields[5].value.trim(),
+    approval_status: 'pending'
+  };
 
-list.innerHTML=filtered.map(song=>`
-<div class="song">
-<div class="cover">🎵</div>
-<h3>${song.title}</h3>
-<p>${song.artist} · ${song.genre}</p>
-<a href="${song.download}" download>Download MP3</a>
-</div>`).join('');
-}
+  const submitButton = this.querySelector('button');
+  submitButton.disabled = true;
+  submitButton.textContent = 'Submitting...';
 
-document.getElementById('artistForm').addEventListener('submit', async function(e){
-e.preventDefault();
+  try {
+    const { error } = await supabase
+      .from('songs')
+      .insert([submission]);
 
-const fields = this.querySelectorAll('input, select, textarea');
+    if (error) {
+      alert('Submission failed: ' + error.message);
+    } else {
+      this.reset();
+      alert('Your music has been submitted successfully and is awaiting approval!');
+    }
+  } catch (error) {
+    alert('Connection problem. Please try again.');
+  }
 
-const submission = {
-  artist: fields[0].value.trim(),
-  artist_email: fields[1].value.trim(),
-  Title: fields[2].value.trim(),
-  genre: fields[3].value,
-  audio_url: fields[4].value.trim(),
-  description: fields[5].value.trim(),
-  approval_status: 'pending'
-};
-
-const { error } = await supabase.from('songs').insert([submission]);
-
-if (error) {
-  alert('Submission failed: ' + error.message);
-  return;
-}
-
-this.reset();
-alert('Your music has been submitted successfully and is awaiting approval!');
+  submitButton.disabled = false;
+  submitButton.textContent = 'Submit Music';
 });
+</script>
 
-renderSongs();
-</script>https://ocqnqntoswppwshwaipu.supabase.co⁠
 </body>
 </html>
