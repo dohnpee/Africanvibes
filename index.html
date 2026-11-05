@@ -99,8 +99,15 @@ footer{text-align:center;padding:30px;color:#aab8af;border-top:1px solid #304037
 </footer>
 
 <script>
+const SUPABASE_URL = "https://ocqnqntoswppwshwaipu.supabase.co";
+const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
+
+const supabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
 const songs = [];
-  https://ocqnqntoswppwshwaipu.supabase.co⁠
 let category = 'All';
 
 function setCategory(value,button){
